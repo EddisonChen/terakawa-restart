@@ -1,12 +1,11 @@
 * {
   margin: 0;
-  background-color: black;
   text-align: center;
 }
 .money-input {
   display:flex;
-  justify-content: column;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .first-part {

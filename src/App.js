@@ -279,14 +279,14 @@ function App() {
             <div className="money-input">
               <div>
                 <h3>Lunch</h3>
-                <input type="number" placeholder="Lunch Credit" name="lunchCredit" onChange={getValue}></input>
-                <input type="number" placeholder="Lunch Cash" name="lunchCash" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Lunch Credit" name="lunchCredit" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Lunch Cash" name="lunchCash" onChange={getValue}></input>
                 <p>Lunch Total: ${lunchTotal}</p>
               </div>
               <div>
                 <h3>Dinner</h3>
-                <input type="number" placeholder="Dinner Credit" name="dinnerCredit" onChange={getValue}></input>
-                <input type="number" placeholder="Dinner Cash" name="dinnerCash" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Dinner Credit" name="dinnerCredit" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Dinner Cash" name="dinnerCash" onChange={getValue}></input>
                 <p>Dinner Total: ${dinnerTotal}</p>
               </div>
             </div>
@@ -305,8 +305,8 @@ function App() {
           <div className="worker-percent">
             <div className="lunch-percent">
               <h3>Lunch</h3>
-              <input type="number" placeholder="Worker 1 %" name="worker1" onChange={setLunchWorkerPercent} ></input>
-              <input type="number" placeholder="Worker 2 %" name="worker2" onChange={setLunchWorkerPercent}></input>
+              <input type="number" mode="numeric" placeholder="Worker 1 %" name="worker1" onChange={setLunchWorkerPercent} ></input>
+              <input type="number" mode="numeric" placeholder="Worker 2 %" name="worker2" onChange={setLunchWorkerPercent}></input>
               <div className="tip-results">
                 <div className="tip-results-specific">
                   <h4>Credit</h4>
@@ -331,9 +331,9 @@ function App() {
             </div>
             <div className="dinner-percent">
               <h3>Dinner</h3>
-              <input type="number" placeholder="Worker 1 %" name="worker1" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
-              <input type="number" placeholder="Worker 2 %" name="worker2" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
-              <input type="number" placeholder="Worker 3 %" name="worker3" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
+              <input type="number" mode="numeric" placeholder="Worker 1 %" name="worker1" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
+              <input type="number" mode="numeric" placeholder="Worker 2 %" name="worker2" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
+              <input type="number" mode="numeric" placeholder="Worker 3 %" name="worker3" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
               <div className="tip-results">
                 <div className="tip-results-specific">
                   <h4>Credit</h4>
