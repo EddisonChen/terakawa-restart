@@ -322,9 +322,9 @@ function App() {
                 </div>
                 <div className="tip-results-specific">
                   <h4>Total</h4>
-                  <p>{worker1LunchPercent*100}%: ${Number(worker1LunchCash) + Number(worker1LunchCredit)}</p>
-                  <p>{worker2LunchPercent*100}%: ${Number(worker2LunchCash) + Number(worker2LunchCredit)}</p>
-                  <p>{worker3LunchPercent*100}%: ${Number(worker3LunchCash) + Number(worker3LunchCredit)}</p>
+                  <p>{worker1LunchPercent*100}%: ${(Number(worker1LunchCash) + Number(worker1LunchCredit)).toFixed(2)}</p>
+                  <p>{worker2LunchPercent*100}%: ${(Number(worker2LunchCash) + Number(worker2LunchCredit)).toFixed(2)}</p>
+                  <p>{worker3LunchPercent*100}%: ${(Number(worker3LunchCash) + Number(worker3LunchCredit)).toFixed(2)}</p>
                 </div>
               </div>
               <p>Winnerz: ${lunchCashRemainder}</p>
