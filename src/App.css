@@ -1,38 +1,52 @@
-.App {
+* {
+  margin: 0;
+  background-color: black;
+  text-align: center;
+}
+.money-input {
+  display:flex;
+  justify-content: column;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.first-part {
+  margin:30px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.kitchen-tip {
+  margin: 20px;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.lunch-percent {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.tip-results {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.tip-results-specific {
+  margin: 20px 20px 10px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dinner-percent {
+  text-align: center;
+  margin-top: 30px;
 }
+
+.dinner-input {
+  width:26%
+}
+
+input {
+  height: 35px;
+  border-radius: 20%;
+  margin: 5px;
+  margin-bottom: 0;
+}
+
