@@ -402,128 +402,146 @@ function App() {
         <div>
           <h1>TawaTawa Mafs</h1>
 
-          {/* <div className="titles">
-              <h2>Lunch</h2>
-              <h2>Dinner</h2>
-            </div> */}
+          <div className="titles">
+              <h2 className="title">Lunch</h2>
+              <h2 className="title">Dinner</h2>
+            </div>
           <div className="inputs">
             
-            <div className="labels">
-              <p></p>
+            <div className="input-labels">
               <h3>Credit Tip</h3>
-              <h3>Cash Tip</h3>
               <h3>Snackpass</h3>
               <h3>Doordash</h3>
+              <h3>Cash Tip</h3>
             </div>
             <div className="lunch-inputs">
-              <h2>Lunch</h2>
               <input type="number" mode="numeric" placeholder="Lunch Credit" name="lunchCredit" onChange={getValue}></input>
-              <input type="number" mode="numeric" placeholder="Lunch Cash" name="lunchCash" onChange={getValue}></input>
               <input type="number" mode="numeric" placeholder="Lunch Snackpass" name="lunchSnackpass" onChange={getValue}></input>
               <input type="number" mode="numeric" placeholder="Lunch Doordash" name="lunchDoordash" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Lunch Cash" name="lunchCash" onChange={getValue}></input>
             </div>
             <div className="dinner-inputs">
-              <h2>Dinner</h2>
               <input type="number" mode="numeric" placeholder="Dinner Credit" name="dinnerCredit" onChange={getValue}></input>
-              <input type="number" mode="numeric" placeholder="Dinner Cash" name="dinnerCash" onChange={getValue}></input>
               <input type="number" mode="numeric" placeholder="Dinner Snackpass" name="dinnerSnackpass" onChange={getValue}></input>
               <input type="number" mode="numeric" placeholder="Dinner Doordash" name="dinnerDoordash" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Dinner Cash" name="dinnerCash" onChange={getValue}></input>
             </div>
           </div>
 
-          <div className="first-part">
-            <div className="money-input">
-              <div>
-                <h3>Lunch</h3>
-                <input type="number" mode="numeric" placeholder="Lunch Credit" name="lunchCredit" onChange={getValue}></input>
-                <input type="number" mode="numeric" placeholder="Lunch Cash" name="lunchCash" onChange={getValue}></input>
-                <input type="number" mode="numeric" placeholder="Lunch Snackpass" name="lunchSnackpass" onChange={getValue}></input>
-                <input type="number" mode="numeric" placeholder="Lunch Doordash" name="lunchDoordash" onChange={getValue}></input>
-                <p>Lunch Credit + Snackpass + Doordash: ${lunchCreditSnackpassDoordash}</p>
-                <p>Lunch Total: ${lunchTotal}</p>
-              </div>
-              <div>
-                <h3>Dinner</h3>
-                <input type="number" mode="numeric" placeholder="Dinner Credit" name="dinnerCredit" onChange={getValue}></input>
-                <input type="number" mode="numeric" placeholder="Dinner Cash" name="dinnerCash" onChange={getValue}></input>
-                <input type="number" mode="numeric" placeholder="Dinner Snackpass" name="dinnerSnackpass" onChange={getValue}></input>
-                <input type="number" mode="numeric" placeholder="Dinner Doordash" name="dinnerDoordash" onChange={getValue}></input>
-                <p>Dinner Credit + Snackpass + Doordash: ${dinnerCreditSnackpassDoordash}</p>
-                <p>Dinner Total: ${dinnerTotal}</p>
-              </div>
+          <div className="results">
+            <div className="result-label">
+              <h3 className="result">CC + DEL: </h3>
+              <h3 className="result">Tip Total: </h3>
             </div>
-            <p>Lunch Credit + Dinner Credit Total: ${(lunchCredit + dinnerCredit).toFixed(2)}</p>
-          </div>
-          
-          <div className="kitchen-tip">
-            <h3>Kitchen Tip</h3>
-            <div>
-              <p>Lunch Kitchen Tip: ${lunchKitchenTip}</p>
-              <p>Lunch Remaining Cash: ${(lunchCash - lunchKitchenTip).toFixed(2)}</p>
-              <p>Dinner Kitchen Tip: ${dinnerKitchenTip}</p>
-              <p>Dinner Remaining Cash: ${(dinnerCash - dinnerKitchenTip).toFixed(2)}</p>
-              <p>Total Kitchen Tip: ${totalKitchenTip}</p>
+            <div className="lunch-results">
+              <p className="result">${lunchCreditSnackpassDoordash}</p>
+              <p className="result">${lunchTotal}</p>
+            </div >
+            <div className="dinner-results">
+              <p className="result">${dinnerCreditSnackpassDoordash}</p>
+              <p className="result">${dinnerTotal}</p>
             </div>
           </div>
 
-          <div className="worker-percent">
-            <div className="lunch-percent">
-              <h3>Lunch</h3>
-              <input type="number" mode="numeric" placeholder="Worker 1 %" name="worker1" onChange={setLunchWorkerPercent} ></input>
-              <input type="number" mode="numeric" placeholder="Worker 2 %" name="worker2" onChange={setLunchWorkerPercent}></input>
-              <div className="tip-results">
-                <div className="tip-results-specific">
-                  <h4>Credit</h4>
-                  <p>{worker1LunchPercent*100}%: ${worker1LunchCredit}</p>
-                  <p>{worker2LunchPercent*100}%: ${worker2LunchCredit}</p>
-                  <p>{worker3LunchPercent*100}%: ${worker3LunchCredit}</p>
-                </div>
-                <div className="tip-results-specific">
-                  <h4>Cash</h4>
-                  <p>{worker1LunchPercent*100}%: ${worker1LunchCash}</p>
-                  <p>{worker2LunchPercent*100}%: ${worker2LunchCash}</p>
-                  <p>{worker3LunchPercent*100}%: ${worker3LunchCash}</p>
-                </div>
-                <div className="tip-results-specific">
-                  <h4>Total</h4>
-                  <p>{worker1LunchPercent*100}%: ${(Number(worker1LunchCash) + Number(worker1LunchCredit)).toFixed(2)}</p>
-                  <p>{worker2LunchPercent*100}%: ${(Number(worker2LunchCash) + Number(worker2LunchCredit)).toFixed(2)}</p>
-                  <p>{worker3LunchPercent*100}%: ${(Number(worker3LunchCash) + Number(worker3LunchCredit)).toFixed(2)}</p>
-                </div>
-              </div>
-              <p>Winnerz: ${lunchCashRemainder}</p>
-            </div>
-            <div className="dinner-percent">
-              <h3>Dinner</h3>
-              <input type="number" mode="numeric" placeholder="Worker 1 %" name="worker1" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
-              <input type="number" mode="numeric" placeholder="Worker 2 %" name="worker2" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
-              <input type="number" mode="numeric" placeholder="Worker 3 %" name="worker3" className="dinner-input" onChange={setDinnerWorkerPercent}></input>
-              <div className="tip-results">
-                <div className="tip-results-specific">
-                  <h4>Credit</h4>
-                  <p>{worker1DinnerPercent*100}%: ${worker1DinnerCredit}</p>
-                  <p>{worker2DinnerPercent*100}%: ${worker2DinnerCredit}</p>
-                  <p>{worker3DinnerPercent*100}%: ${worker3DinnerCredit}</p>
-                  <p>{worker4DinnerPercent*100}%: ${worker4DinnerCredit}</p>
-                </div>
-                <div className="tip-results-specific">
-                  <h4>Cash</h4>
-                  <p>{worker1DinnerPercent*100}%: ${worker1DinnerCash}</p>
-                  <p>{worker2DinnerPercent*100}%: ${worker2DinnerCash}</p>
-                  <p>{worker3DinnerPercent*100}%: ${worker3DinnerCash}</p>
-                  <p>{worker4DinnerPercent*100}%: ${worker4DinnerCash}</p>
-                </div>
-                <div className="tip-results-specific">
-                  <h4>Total</h4>
-                  <p>{worker1DinnerPercent*100}%: ${(Number(worker1DinnerCash) + Number(worker1DinnerCredit)).toFixed(2)}</p>
-                  <p>{worker2DinnerPercent*100}%: ${(Number(worker2DinnerCash) + Number(worker2DinnerCredit)).toFixed(2)}</p>
-                  <p>{worker3DinnerPercent*100}%: ${(Number(worker3DinnerCash) + Number(worker3DinnerCredit)).toFixed(2)}</p>
-                  <p>{worker4DinnerPercent*100}%: ${(Number(worker4DinnerCash) + Number(worker4DinnerCredit)).toFixed(2)}</p>
-                </div>
-              </div>
-              <p>Winnerz: ${dinnerCashRemainder}</p>
-            </div>
+          <div >
+            <p className="lunch-dinner-credit-total">Lunch + Dinner Credit Total: ${(lunchCredit + dinnerCredit).toFixed(2)}</p>
+          </div>
 
+          <div>
+            <h3 className="kitchen-tip-header">Kitchen Tip</h3>
+          </div>
+          <div className="kitchen-tip-container">
+            <div className="kitchen-tip-subcontainer">
+              <h4>Lunch: </h4>
+              <h4>Dinner: </h4>
+            </div>
+            <div className="kitchen-tip-subcontainer">
+              <p>${lunchKitchenTip}</p>
+              <p>${dinnerKitchenTip}</p>
+            </div>
+            <div className="kitchen-tip-subcontainer">
+              <h4>Remaining: </h4>
+              <h4>Remaining: </h4>
+            </div>
+            <div className="kitchen-tip-subcontainer">
+              <p>${lunchCashRemainder}</p>
+              <p>${dinnerCashRemainder}</p>
+            </div>
+          </div>
+          <div>
+            <p className="kitchen-tip-footer">Total Kitchen Tip: ${totalKitchenTip}</p>
+          </div>
+
+          <div>
+            <h3 className="percentage-header">Lunch Servers</h3>
+          </div>
+          <div className = "percentage-inputs">
+            <input type="number" className="percent-input" mode="numeric" placeholder="Worker 1 %" name="worker1" onChange={setLunchWorkerPercent} ></input>
+            <input type="number" className="percent-input" mode="numeric" placeholder="Worker 2 %" name="worker2" onChange={setLunchWorkerPercent}></input>
+          </div>
+          <div className="server-results">
+            <div className="server">
+              <h4>Percent</h4>
+              <p>{worker1LunchPercent*100}%</p>
+              <p>{worker2LunchPercent*100}%</p>
+              <p>{worker3LunchPercent*100}%</p>
+            </div>
+            <div className="server">
+              <h4>Credit</h4>
+              <p>${worker1LunchCredit}</p>
+              <p>${worker2LunchCredit}</p>
+              <p>${worker3LunchCredit}</p>
+            </div>
+            <div className="server">
+              <h4>Cash</h4>
+              <p>${worker1LunchCash}</p>
+              <p>${worker2LunchCash}</p>
+              <p>${worker3LunchCash}</p>
+            </div>
+            <div className="server">
+              <h4>Total</h4>
+              <p>${(Number(worker1LunchCash) + Number(worker1LunchCredit)).toFixed(2)}</p>
+              <p>${(Number(worker2LunchCash) + Number(worker2LunchCredit)).toFixed(2)}</p>
+              <p>${(Number(worker3LunchCash) + Number(worker3LunchCredit)).toFixed(2)}</p>
+            </div>
+          </div>
+          <div>
+            <h3 className="percentage-header">Dinner Servers</h3>
+          </div>
+          <div className="percentage-inputs">
+            <input type="number" className="percent-input" mode="numeric" placeholder="Worker 1 %" name="worker1" onChange={setDinnerWorkerPercent}></input>
+            <input type="number" className="percent-input" mode="numeric" placeholder="Worker 2 %" name="worker2" onChange={setDinnerWorkerPercent}></input>
+            <input type="number" className="percent-input" mode="numeric" placeholder="Worker 3 %" name="worker3" onChange={setDinnerWorkerPercent}></input>
+          </div>
+          <div className="server-results">
+            <div className="server">
+              <h4>Percent</h4>
+              <p>{worker1DinnerPercent*100}%</p>
+              <p>{worker2DinnerPercent*100}%</p>
+              <p>{worker3DinnerPercent*100}%</p>
+              <p>{worker4DinnerPercent*100}%</p>
+            </div>
+            <div className="server">
+              <h4>Credit</h4>
+              <p>${worker1DinnerCredit}</p>
+              <p>${worker2DinnerCredit}</p>
+              <p>${worker3DinnerCredit}</p>
+              <p>${worker4DinnerCredit}</p>
+            </div>
+            <div className="server">
+              <h4>Cash</h4>
+              <p>${worker1DinnerCash}</p>
+              <p>${worker2DinnerCash}</p>
+              <p>${worker3DinnerCash}</p>
+              <p>${worker4DinnerCash}</p>
+            </div>
+            <div className="server">
+              <h4>Total</h4>
+              <p>${(Number(worker1DinnerCash) + Number(worker1DinnerCredit)).toFixed(2)}</p>
+              <p>${(Number(worker2DinnerCash) + Number(worker2DinnerCredit)).toFixed(2)}</p>
+              <p>${(Number(worker3DinnerCash) + Number(worker3DinnerCredit)).toFixed(2)}</p>
+              <p>${(Number(worker4DinnerCash) + Number(worker4DinnerCredit)).toFixed(2)}</p>
+            </div>
           </div>
         </div>
       </header>

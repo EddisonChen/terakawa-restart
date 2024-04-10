@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+* {
+  margin:0;
+}
+
+h1 {
+  text-align: center;
+}
+
 .titles {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-left: 22%;
 }
 
 .inputs {
@@ -11,29 +20,116 @@
   flex-direction: row;
   justify-content: center;
   font-size: 10px;
+  height: 230px;
+
 }
 
-.labels {
+.input-labels {
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  font-size: 13px;
 }
 
 .lunch-inputs {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 .dinner-inputs {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 input {
-  width: 70%;
-  height: 30%;
+  width: 80%;
+  height: 40%;
+  margin: 3px;
+  text-align: center;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height:60px;
+}
+
+.lunch-results {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dinner-results {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-label {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lunch-dinner-credit-total {
+  text-align: center;
+  padding: 0;
   margin: 2px;
+}
+
+.kitchen-tip-header {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.kitchen-tip-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.kitchen-tip-footer {
+  margin-top: 0;
+  text-align: center;
+}
+
+.percentage-header {
+  text-align: center;
+  margin-top:15px;
+}
+
+.percentage-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.server-results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.server {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.percent-input {
+  height: 50px;
+  width: 30%;
 }
