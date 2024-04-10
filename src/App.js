@@ -6,41 +6,126 @@ function App() {
 
   const [lunchCredit, setLunchCredit] = useState(0)
   const [lunchCash, setLunchCash] = useState(0)
+  const [lunchSnackpass, setLunchSnackpass] = useState(0)
+  const [lunchDoordash, setLunchDoordash] = useState(0)
+  const [lunchCreditSnackpassDoordash, setLunchCreditSnackpassDoordash] = useState(0)
   const [lunchKitchenTip, setLunchKitchenTip] = useState(0)
+  const [lunchTotal, setLunchTotal] = useState(0)
 
   const [dinnerCredit, setDinnerCredit] = useState(0)
   const [dinnerCash, setDinnerCash] = useState(0)
+  const [dinnerSnackpass, setDinnerSnackpass] = useState(0)
+  const [dinnerDoordash, setDinnerDoordash] = useState(0)
+  const [dinnerCreditSnackpassDoordash, setDinnerCreditSnackpassDoordash] = useState(0)
   const [dinnerKitchenTip, setDinnerKitchenTip] = useState(0)
-
-  const [lunchTotal, setLunchTotal] = useState(0)
   const [dinnerTotal, setDinnerTotal] = useState(0)
+
   const [total, setTotal] = useState(0)
   const [totalKitchenTip, setTotalKitchenTip] = useState(0)
 
+  const [worker1DinnerCash, setWorker1DinnerCash] = useState(0)
+  const [worker2DinnerCash, setWorker2DinnerCash] = useState(0)
+  const [worker3DinnerCash, setWorker3DinnerCash] = useState(0)
+  const [worker4DinnerCash, setWorker4DinnerCash] = useState(0)
+  const [dinnerCashRemainder, setDinnerCashRemainder] = useState(0)
+
+  const [worker1LunchPercent, setWorker1LunchPercent] = useState(1)
+  const [worker2LunchPercent, setWorker2LunchPercent] = useState(1)
+  const [worker3LunchPercent, setWorker3LunchPercent] = useState(1)
+
+  const [worker1LunchCredit, setWorker1LunchCredit] = useState()
+  const [worker2LunchCredit, setWorker2LunchCredit] = useState()
+  const [worker3LunchCredit, setWorker3LunchCredit] = useState()
+
+  const [worker1DinnerPercent, setWorker1DinnerPercent] = useState(1)
+  const [worker2DinnerPercent, setWorker2DinnerPercent] = useState(1)
+  const [worker3DinnerPercent, setWorker3DinnerPercent] = useState(1)
+  const [worker4DinnerPercent, setWorker4DinnerPercent] = useState(1)
+  
+  const [worker1DinnerCredit, setWorker1DinnerCredit] = useState()
+  const [worker2DinnerCredit, setWorker2DinnerCredit] = useState()
+  const [worker3DinnerCredit, setWorker3DinnerCredit] = useState()
+  const [worker4DinnerCredit, setWorker4DinnerCredit] = useState()
+
+  const [worker1LunchCash, setWorker1LunchCash] = useState(0)
+  const [worker2LunchCash, setWorker2LunchCash] = useState(0)
+  const [worker3LunchCash, setWorker3LunchCash] = useState(0)
+  const [lunchCashRemainder, setLunchCashRemainder] = useState(0)
+
   const getValue = (e) => {
     if (e.target.name == "lunchCredit") {
-      setLunchCredit(parseFloat(e.target.value))
+      if (e.target.value == "") {
+        setLunchCredit(0)
+      } else {
+        setLunchCredit(parseFloat(e.target.value))
+      }
     } else if (e.target.name == "lunchCash") {
-      setLunchCash(parseFloat(e.target.value))
+        if (e.target.value == "") {
+          setLunchCash(0)
+        } else {
+          setLunchCash(parseFloat(e.target.value))
+        }
+    } else if (e.target.name == "lunchSnackpass") {
+        if (e.target.value == "") {
+          setLunchSnackpass(0)
+        } else {
+          setLunchSnackpass(parseFloat(e.target.value))
+        }
+    } else if (e.target.name == "lunchDoordash") {
+        if (e.target.value == "") {
+          setLunchDoordash(0)
+        } else {
+          setLunchDoordash(parseFloat(e.target.value))
+        }
     } else if (e.target.name == "dinnerCredit") {
-      setDinnerCredit(parseFloat(e.target.value))
+        if (e.target.value == "") {
+          setDinnerCredit(0)
+        } else {
+          setDinnerCredit(parseFloat(e.target.value))
+        }
     } else if (e.target.name == "dinnerCash") {
-      setDinnerCash(parseFloat(e.target.value))
+        if (e.target.value == "") {
+          setDinnerCash(0)
+        } else {
+          setDinnerCash(parseFloat(e.target.value))
+        }
+    } else if (e.target.name == "dinnerSnackpass") {
+        if (e.target.value == "") {
+          setDinnerSnackpass(0)
+        } else {
+          setDinnerSnackpass(parseFloat(e.target.value))
+        }
+    } else if (e.target.name == "dinnerDoordash") {
+        if (e.target.value == "") {
+          setDinnerDoordash(0)
+        } else {
+          setDinnerDoordash(parseFloat(e.target.value))
+        }
     }
   }
 
-  const calculateLunchTotal = () => {
-    setLunchTotal(Number(lunchCredit + lunchCash))
+  const calculateLunchCreditSnackpassDoordash = () => {
+    setLunchCreditSnackpassDoordash(Number((lunchCredit + lunchSnackpass + lunchDoordash).toFixed(2)))
   }
-  useEffect(calculateLunchTotal, [lunchCredit, lunchCash])
+  useEffect(calculateLunchCreditSnackpassDoordash, [lunchCredit, lunchSnackpass, lunchDoordash])
+
+  const calculateDinnerCreditSnackpassDoordash = () => {
+    setDinnerCreditSnackpassDoordash(Number((dinnerCredit + dinnerSnackpass + dinnerDoordash).toFixed(2)))
+  }
+  useEffect(calculateDinnerCreditSnackpassDoordash, [dinnerCredit, dinnerSnackpass, dinnerDoordash])
+
+  const calculateLunchTotal = () => {
+    setLunchTotal(Number((lunchCreditSnackpassDoordash + lunchCash).toFixed(2)))
+  }
+  useEffect(calculateLunchTotal, [lunchCreditSnackpassDoordash, lunchCash])
 
   const calculateDinnerTotal = () => {
-    setDinnerTotal(Number(dinnerCredit + dinnerCash))
+    setDinnerTotal(Number((dinnerCreditSnackpassDoordash + dinnerCash).toFixed(2)))
   }
-  useEffect(calculateDinnerTotal, [dinnerCredit, dinnerCash])
+  useEffect(calculateDinnerTotal, [dinnerCreditSnackpassDoordash, dinnerCash])
 
   const calculateTotal = () => {
-    setTotal(Number(lunchTotal + dinnerTotal).toFixed(2))
+    setTotal(Number((lunchTotal + dinnerTotal).toFixed(2)))
   }
   useEffect(calculateTotal, [lunchTotal, dinnerTotal])
 
@@ -57,23 +142,21 @@ function App() {
     setTotalKitchenTip(lunchKitchenTip + dinnerKitchenTip)
   }, [lunchKitchenTip, dinnerKitchenTip])
 
-  const [worker1LunchPercent, setWorker1LunchPercent] = useState(1)
-  const [worker2LunchPercent, setWorker2LunchPercent] = useState(1)
-  const [worker3LunchPercent, setWorker3LunchPercent] = useState(1)
-
   const setLunchWorkerPercent = (e) => {
     if (e.target.name == "worker1") {
-      setWorker1LunchPercent(Number(e.target.value)/100)
+      if (e.target.value == "") {
+        setWorker1LunchPercent(1)
+      } else {
+        setWorker1LunchPercent(Number(e.target.value)/100)
+      }
     } else if (e.target.name == "worker2") {
-      setWorker2LunchPercent(Number(e.target.value)/100)
+        if (e.target.value == "") {
+          setWorker2LunchPercent(1)
+        } else {
+          setWorker2LunchPercent(Number(e.target.value)/100)
+        }
     }
   }
-
-  const [worker1LunchCredit, setWorker1LunchCredit] = useState()
-  const [worker2LunchCredit, setWorker2LunchCredit] = useState()
-  const [worker3LunchCredit, setWorker3LunchCredit] = useState()
-  
-  console.log("worker percents" + worker1LunchPercent, worker2LunchPercent, worker3LunchPercent)
   
   const calculateLunchCreditDistribution = () => {
     const tempLunchCredit = lunchCredit / 3
@@ -111,25 +194,27 @@ function App() {
   }
   useEffect(calculateLunchCreditDistribution, [lunchCredit, worker1LunchPercent, worker2LunchPercent, worker3LunchPercent])
 
-  const [worker1DinnerPercent, setWorker1DinnerPercent] = useState(1)
-  const [worker2DinnerPercent, setWorker2DinnerPercent] = useState(1)
-  const [worker3DinnerPercent, setWorker3DinnerPercent] = useState(1)
-  const [worker4DinnerPercent, setWorker4DinnerPercent] = useState(1)
-
   const setDinnerWorkerPercent = (e) => {
     if (e.target.name == "worker1") {
-      setWorker1DinnerPercent(Number(e.target.value)/100)
+      if (e.target.value == "") {
+        setWorker1DinnerPercent(1)
+      } else {
+        setWorker1DinnerPercent(Number(e.target.value)/100)
+      }
     } else if (e.target.name == "worker2") {
-      setWorker2DinnerPercent(Number(e.target.value)/100)
+        if (e.target.value == "") {
+          setWorker2DinnerPercent(1)
+        } else {
+          setWorker2DinnerPercent(Number(e.target.value)/100)
+        }
     } else if (e.target.name == "worker3") {
-      setWorker3DinnerPercent(Number(e.target.value)/100)
+      if (e.target.value == "") {
+        setWorker3DinnerPercent(1)
+      } else {
+        setWorker3DinnerPercent(Number(e.target.value)/100)
+      }
     }
   }
-
-  const [worker1DinnerCredit, setWorker1DinnerCredit] = useState()
-  const [worker2DinnerCredit, setWorker2DinnerCredit] = useState()
-  const [worker3DinnerCredit, setWorker3DinnerCredit] = useState()
-  const [worker4DinnerCredit, setWorker4DinnerCredit] = useState()
 
   const calculateDinnerCreditDistribution = () => {
     const tempDinnerCredit = dinnerCredit / 4
@@ -172,11 +257,6 @@ function App() {
   }
   useEffect(calculateDinnerCreditDistribution, [dinnerCredit, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
 
-  const [worker1LunchCash, setWorker1LunchCash] = useState(0)
-  const [worker2LunchCash, setWorker2LunchCash] = useState(0)
-  const [worker3LunchCash, setWorker3LunchCash] = useState(0)
-  const [lunchCashRemainder, setLunchCashRemainder] = useState(0)
-
   const calculateLunchCashDistribution = () => {
     const tempLunchCashAfterKitchen = (lunchCash - lunchKitchenTip)
     const tempLunchCashAfterKitchenPerPerson = tempLunchCashAfterKitchen/3
@@ -199,25 +279,23 @@ function App() {
 
     const fullPercent = (tempLunchCashAfterKitchen - (sump))/count
 
-    if (worker1LunchPercent == 1) {
-      setWorker1LunchCash(Math.floor(fullPercent))
-    } else {
-      setWorker1LunchCash(p1.toFixed())
+    if (lunchCash !== 0) {
+      if (worker1LunchPercent == 1) {
+        setWorker1LunchCash(Math.floor(fullPercent))
+      } else {
+        setWorker1LunchCash(p1.toFixed())
+      }
+      if (worker2LunchPercent == 1) {
+        setWorker2LunchCash(Math.floor(fullPercent))
+      } else {
+        setWorker2LunchCash(p2.toFixed())
+      }
+      setWorker3LunchCash(Math.floor(fullPercent))
     }
-    if (worker2LunchPercent == 1) {
-      setWorker2LunchCash(Math.floor(fullPercent))
-    } else {
-      setWorker2LunchCash(p2.toFixed())
-    }
-    setWorker3LunchCash(Math.floor(fullPercent))
+
+    
   }
   useEffect(calculateLunchCashDistribution, [lunchCash, lunchKitchenTip, worker1LunchPercent, worker2LunchPercent, worker3LunchPercent])
-
-  const [worker1DinnerCash, setWorker1DinnerCash] = useState(0)
-  const [worker2DinnerCash, setWorker2DinnerCash] = useState(0)
-  const [worker3DinnerCash, setWorker3DinnerCash] = useState(0)
-  const [worker4DinnerCash, setWorker4DinnerCash] = useState(0)
-  const [dinnerCashRemainder, setDinnerCashRemainder] = useState(0)
 
   const calculateDinnerCashDistribution = () => {
     const tempDinnerCashAfterKitchen = (dinnerCash - dinnerKitchenTip)
@@ -244,22 +322,24 @@ function App() {
 
     const fullPercent = (tempDinnerCashAfterKitchen - (sump))/count
 
-    if (worker1DinnerPercent == 1) {
-      setWorker1DinnerCash(Math.floor(fullPercent))
-    } else {
-      setWorker1DinnerCash(p1.toFixed())
-    }
-    if (worker2DinnerPercent == 1) {
-      setWorker2DinnerCash(Math.floor(fullPercent))
-    } else {
-      setWorker2DinnerCash(p2.toFixed())
-    }
-    if (worker3DinnerPercent == 1) {
-      setWorker3DinnerCash(Math.floor(fullPercent))
-    } else {
-      setWorker3DinnerCash(p3.toFixed())
-    }
-    setWorker4DinnerCash(Math.floor(fullPercent))
+    if (dinnerCash !== 0) {
+      if (worker1DinnerPercent == 1) {
+        setWorker1DinnerCash(Math.floor(fullPercent))
+      } else {
+        setWorker1DinnerCash(p1.toFixed())
+      }
+      if (worker2DinnerPercent == 1) {
+        setWorker2DinnerCash(Math.floor(fullPercent))
+      } else {
+        setWorker2DinnerCash(p2.toFixed())
+      }
+      if (worker3DinnerPercent == 1) {
+        setWorker3DinnerCash(Math.floor(fullPercent))
+      } else {
+        setWorker3DinnerCash(p3.toFixed())
+      }
+      setWorker4DinnerCash(Math.floor(fullPercent))
+    }    
   }
   useEffect(calculateDinnerCashDistribution, [dinnerCash, dinnerKitchenTip, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
 
@@ -268,6 +348,53 @@ function App() {
     setDinnerCashRemainder((Number(dinnerCash) - Number(dinnerKitchenTip)) - (Number(worker1DinnerCash) + Number(worker2DinnerCash) + Number(worker3DinnerCash) + Number(worker4DinnerCash)))
   }
   useEffect(calculateRemainders, [lunchCash, dinnerCash, worker1LunchCash, worker1DinnerCash, worker2LunchCash, worker2DinnerCash, worker3LunchCash, worker3DinnerCash, worker4DinnerCash, dinnerKitchenTip, lunchKitchenTip])
+
+  const divideRemainder = () => {
+    const lunchPercentages = [worker1LunchPercent, worker2LunchPercent, worker3LunchPercent]
+    let lunchCount = 0
+    for  (let i = 0; i < lunchPercentages.length; i ++) {
+      if (lunchPercentages[i] == 1) {
+        lunchCount ++
+      }
+    }
+    if (lunchCashRemainder % lunchCount == 0) {
+      const dividedAmount = lunchCashRemainder / lunchCount
+      if (worker1LunchPercent == 1) {
+        setWorker1LunchCash(worker1LunchCash + dividedAmount)
+      }
+      if (worker2LunchPercent == 1) {
+        setWorker2LunchCash(worker2LunchCash + dividedAmount)
+      }
+      if (worker3LunchPercent == 1) {
+        setWorker3LunchCash(worker3LunchCash + dividedAmount)
+      }
+    }
+
+    const dinnerPercentages = [worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent]
+    let dinnerCount = 0
+    for  (let i = 0; i < dinnerPercentages.length; i ++) {
+      if (dinnerPercentages[i] == 1) {
+        dinnerCount ++
+      }
+    }
+    console.log("dinner cash remainder", dinnerCashRemainder, dinnerCount)
+    if (dinnerCashRemainder % dinnerCount == 0) {
+      const dividedAmount = dinnerCashRemainder / dinnerCount
+      if (worker1DinnerPercent == 1) {
+        setWorker1DinnerCash(worker1DinnerCash + dividedAmount)
+      }
+      if (worker2DinnerPercent == 1) {
+        setWorker2DinnerCash(worker2DinnerCash + dividedAmount)
+      }
+      if (worker3DinnerPercent == 1) {
+        setWorker3DinnerCash(worker3DinnerCash + dividedAmount)
+      }
+      if (worker4DinnerPercent == 1) {
+        setWorker4DinnerCash(worker4DinnerCash + dividedAmount)
+      }
+    }
+  }
+  useEffect(divideRemainder, [worker1LunchPercent, worker2LunchPercent, worker3LunchPercent, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent, lunchCashRemainder, dinnerCashRemainder])
 
   return (
     <div className="App">
@@ -281,23 +408,31 @@ function App() {
                 <h3>Lunch</h3>
                 <input type="number" mode="numeric" placeholder="Lunch Credit" name="lunchCredit" onChange={getValue}></input>
                 <input type="number" mode="numeric" placeholder="Lunch Cash" name="lunchCash" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Lunch Snackpass" name="lunchSnackpass" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Lunch Doordash" name="lunchDoordash" onChange={getValue}></input>
+                <p>Lunch Credit + Snackpass + Doordash: ${lunchCreditSnackpassDoordash}</p>
                 <p>Lunch Total: ${lunchTotal}</p>
               </div>
               <div>
                 <h3>Dinner</h3>
                 <input type="number" mode="numeric" placeholder="Dinner Credit" name="dinnerCredit" onChange={getValue}></input>
                 <input type="number" mode="numeric" placeholder="Dinner Cash" name="dinnerCash" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Dinner Snackpass" name="dinnerSnackpass" onChange={getValue}></input>
+                <input type="number" mode="numeric" placeholder="Dinner Doordash" name="dinnerDoordash" onChange={getValue}></input>
+                <p>Dinner Credit + Snackpass + Doordash: ${dinnerCreditSnackpassDoordash}</p>
                 <p>Dinner Total: ${dinnerTotal}</p>
               </div>
             </div>
-            <p>Lunch + Dinner Total: ${total}</p>
+            <p>Lunch Credit + Dinner Credit Total: ${(lunchCredit + dinnerCredit).toFixed(2)}</p>
           </div>
           
           <div className="kitchen-tip">
             <h3>Kitchen Tip</h3>
             <div>
               <p>Lunch Kitchen Tip: ${lunchKitchenTip}</p>
+              <p>Lunch Remaining Cash: ${(lunchCash - lunchKitchenTip).toFixed(2)}</p>
               <p>Dinner Kitchen Tip: ${dinnerKitchenTip}</p>
+              <p>Dinner Remaining Cash: ${(dinnerCash - dinnerKitchenTip).toFixed(2)}</p>
               <p>Total Kitchen Tip: ${totalKitchenTip}</p>
             </div>
           </div>
@@ -351,10 +486,10 @@ function App() {
                 </div>
                 <div className="tip-results-specific">
                   <h4>Total</h4>
-                  <p>{worker1DinnerPercent*100}%: ${Number(worker1DinnerCash) + Number(worker1DinnerCredit)}</p>
-                  <p>{worker2DinnerPercent*100}%: ${Number(worker2DinnerCash) + Number(worker2DinnerCredit)}</p>
-                  <p>{worker3DinnerPercent*100}%: ${Number(worker3DinnerCash) + Number(worker3DinnerCredit)}</p>
-                  <p>{worker4DinnerPercent*100}%: ${Number(worker4DinnerCash) + Number(worker4DinnerCredit)}</p>
+                  <p>{worker1DinnerPercent*100}%: ${(Number(worker1DinnerCash) + Number(worker1DinnerCredit)).toFixed(2)}</p>
+                  <p>{worker2DinnerPercent*100}%: ${(Number(worker2DinnerCash) + Number(worker2DinnerCredit)).toFixed(2)}</p>
+                  <p>{worker3DinnerPercent*100}%: ${(Number(worker3DinnerCash) + Number(worker3DinnerCredit)).toFixed(2)}</p>
+                  <p>{worker4DinnerPercent*100}%: ${(Number(worker4DinnerCash) + Number(worker4DinnerCredit)).toFixed(2)}</p>
                 </div>
               </div>
               <p>Winnerz: ${dinnerCashRemainder}</p>
