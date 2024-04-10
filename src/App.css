@@ -1,51 +1,39 @@
-* {
-  margin: 0;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-.money-input {
-  display:flex;
+
+.inputs {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  font-size: 10px;
+}
+
+.labels {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.first-part {
-  margin:30px;
-  text-align: center;
-}
-
-.kitchen-tip {
-  margin: 20px;
-  text-align: center;
-}
-
-.lunch-percent {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.tip-results {
+.lunch-inputs {
   display: flex;
-  justify-content: center;
-  padding: 0px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.tip-results-specific {
-  margin: 20px 5px 10px 20px;
-}
-
-.dinner-percent {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.dinner-input {
-  width:26%
+.dinner-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input {
-  height: 35px;
-  border-radius: 20%;
-  margin: 5px;
-  margin-bottom: 0;
+  width: 70%;
+  height: 30%;
+  margin: 2px;
 }
-

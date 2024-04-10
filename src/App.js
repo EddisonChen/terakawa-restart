@@ -400,7 +400,36 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          <h1>Nerd Land</h1>
+          <h1>TawaTawa Mafs</h1>
+
+          {/* <div className="titles">
+              <h2>Lunch</h2>
+              <h2>Dinner</h2>
+            </div> */}
+          <div className="inputs">
+            
+            <div className="labels">
+              <p></p>
+              <h3>Credit Tip</h3>
+              <h3>Cash Tip</h3>
+              <h3>Snackpass</h3>
+              <h3>Doordash</h3>
+            </div>
+            <div className="lunch-inputs">
+              <h2>Lunch</h2>
+              <input type="number" mode="numeric" placeholder="Lunch Credit" name="lunchCredit" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Lunch Cash" name="lunchCash" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Lunch Snackpass" name="lunchSnackpass" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Lunch Doordash" name="lunchDoordash" onChange={getValue}></input>
+            </div>
+            <div className="dinner-inputs">
+              <h2>Dinner</h2>
+              <input type="number" mode="numeric" placeholder="Dinner Credit" name="dinnerCredit" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Dinner Cash" name="dinnerCash" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Dinner Snackpass" name="dinnerSnackpass" onChange={getValue}></input>
+              <input type="number" mode="numeric" placeholder="Dinner Doordash" name="dinnerDoordash" onChange={getValue}></input>
+            </div>
+          </div>
 
           <div className="first-part">
             <div className="money-input">
