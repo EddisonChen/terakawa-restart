@@ -293,21 +293,17 @@ function App() {
       }
       setWorker3LunchCash(Math.floor(fullPercent))
     }
-
-    
   }
   useEffect(calculateLunchCashDistribution, [lunchCash, lunchKitchenTip, worker1LunchPercent, worker2LunchPercent, worker3LunchPercent])
 
   const calculateDinnerCashDistribution = () => {
     const tempDinnerCashAfterKitchen = (dinnerCash - dinnerKitchenTip)
     const tempDinnerCashAfterKitchenPerPerson = tempDinnerCashAfterKitchen/4
-    console.log("dinner cash after kitchen" + tempDinnerCashAfterKitchen)
 
     const p1 = worker1DinnerPercent*tempDinnerCashAfterKitchenPerPerson
     const p2 = worker2DinnerPercent*tempDinnerCashAfterKitchenPerPerson
     const p3 = worker3DinnerPercent*tempDinnerCashAfterKitchenPerPerson
     const p4 = worker4DinnerPercent*tempDinnerCashAfterKitchenPerPerson
-    console.log("p1, p2, p3, p4" + p1, p2, p3, p4)
 
     let sump = 0
     let count = 0
@@ -359,6 +355,7 @@ function App() {
       }
     }
     if (lunchCashRemainder > 0 && lunchCashRemainder % lunchCount == 0) {
+      console.log("lunch remainder running")
       console.log(lunchCashRemainder, lunchCount)
       const dividedAmount = lunchCashRemainder / lunchCount
       if (worker1LunchPercent == 1) {
@@ -382,6 +379,8 @@ function App() {
     }
 
     if (dinnerCashRemainder > 0 && dinnerCashRemainder % dinnerCount == 0) {
+      console.log("dinner remainder running")
+      console.log(dinnerCashRemainder, dinnerCount)
       const dividedAmount = dinnerCashRemainder / dinnerCount
       if (worker1DinnerPercent == 1) {
         setWorker1DinnerCash(worker1DinnerCash + dividedAmount)
@@ -398,7 +397,7 @@ function App() {
       setDinnerCashRemainder(0)
     }
   }
-  useEffect(divideRemainder, [worker1LunchPercent, worker2LunchPercent, worker3LunchPercent, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
+  useEffect(divideRemainder, [worker1LunchPercent, worker2LunchPercent, worker3LunchPercent, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent, lunchCashRemainder, dinnerCashRemainder])
 
   return (
     <div className="App">
@@ -542,9 +541,9 @@ function App() {
           <div className="server-results">
             <div className="server">
               <h4>Percent</h4>
-              <p>{worker1LunchPercent*100}%</p>
-              <p>{worker2LunchPercent*100}%</p>
-              <p>{worker3LunchPercent*100}%</p>
+              <p>{(worker1LunchPercent*100).toFixed()}%</p>
+              <p>{(worker2LunchPercent*100).toFixed()}%</p>
+              <p>{(worker3LunchPercent*100).toFixed()}%</p>
             </div>
             <div className="server">
               <h4>Credit</h4>
@@ -611,10 +610,10 @@ function App() {
           <div className="server-results">
             <div className="server">
               <h4>Percent</h4>
-              <p>{worker1DinnerPercent*100}%</p>
-              <p>{worker2DinnerPercent*100}%</p>
-              <p>{worker3DinnerPercent*100}%</p>
-              <p>{worker4DinnerPercent*100}%</p>
+              <p>{(worker1DinnerPercent*100).toFixed()}%</p>
+              <p>{(worker2DinnerPercent*100).toFixed()}%</p>
+              <p>{(worker3DinnerPercent*100).toFixed()}%</p>
+              <p>{(worker4DinnerPercent*100).toFixed()}%</p>
             </div>
             <div className="server">
               <h4>Credit</h4>
