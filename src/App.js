@@ -345,8 +345,8 @@ function App() {
   useEffect(calculateDinnerCashDistribution, [dinnerCash, dinnerKitchenTip, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
 
   const calculateRemainders = () => {
-    setLunchCashRemainder(((Number(lunchCash) - Number(lunchKitchenTip)) - (Number(worker1LunchCash) + Number(worker2LunchCash) + Number(worker3LunchCash))).toFixed())
-    setDinnerCashRemainder(((Number(dinnerCash) - Number(dinnerKitchenTip)) - (Number(worker1DinnerCash) + Number(worker2DinnerCash) + Number(worker3DinnerCash) + Number(worker4DinnerCash))).toFixed())
+    setLunchCashRemainder((Number(lunchCash) - Number(lunchKitchenTip) - Number(worker1LunchCash) - Number(worker2LunchCash) - Number(worker3LunchCash)).toFixed())
+    setDinnerCashRemainder((Number(dinnerCash) - Number(dinnerKitchenTip) - Number(worker1DinnerCash) - Number(worker2DinnerCash) - Number(worker3DinnerCash) - Number(worker4DinnerCash)).toFixed())
   }
   useEffect(calculateRemainders, [lunchCash, dinnerCash, worker1LunchCash, worker1DinnerCash, worker2LunchCash, worker2DinnerCash, worker3LunchCash, worker3DinnerCash, worker4DinnerCash, dinnerKitchenTip, lunchKitchenTip])
 
@@ -358,7 +358,8 @@ function App() {
         lunchCount ++
       }
     }
-    if (lunchCashRemainder % lunchCount == 0) {
+    if (lunchCashRemainder > 0 && lunchCashRemainder % lunchCount == 0) {
+      console.log(lunchCashRemainder, lunchCount)
       const dividedAmount = lunchCashRemainder / lunchCount
       if (worker1LunchPercent == 1) {
         setWorker1LunchCash(worker1LunchCash + dividedAmount)
@@ -369,6 +370,7 @@ function App() {
       if (worker3LunchPercent == 1) {
         setWorker3LunchCash(worker3LunchCash + dividedAmount)
       }
+      setLunchCashRemainder(0)
     }
 
     const dinnerPercentages = [worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent]
@@ -378,8 +380,8 @@ function App() {
         dinnerCount ++
       }
     }
-    console.log("dinner cash remainder", dinnerCashRemainder, dinnerCount)
-    if (dinnerCashRemainder % dinnerCount == 0) {
+
+    if (dinnerCashRemainder > 0 && dinnerCashRemainder % dinnerCount == 0) {
       const dividedAmount = dinnerCashRemainder / dinnerCount
       if (worker1DinnerPercent == 1) {
         setWorker1DinnerCash(worker1DinnerCash + dividedAmount)
@@ -393,9 +395,10 @@ function App() {
       if (worker4DinnerPercent == 1) {
         setWorker4DinnerCash(worker4DinnerCash + dividedAmount)
       }
+      setDinnerCashRemainder(0)
     }
   }
-  useEffect(divideRemainder, [worker1LunchPercent, worker2LunchPercent, worker3LunchPercent, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent, lunchCashRemainder, dinnerCashRemainder])
+  useEffect(divideRemainder, [worker1LunchPercent, worker2LunchPercent, worker3LunchPercent, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
 
   return (
     <div className="App">
@@ -481,7 +484,6 @@ function App() {
             <img className="fish-border" src={fish} alt="fish border"/>
           </div>
           
-
           <div>
             <h3 className="kitchen-tip-header">Kitchen Tip</h3>
           </div>
