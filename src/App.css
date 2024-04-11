@@ -1,11 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Tilt+Neon&display=swap');
 
 * {
   margin:0;
+  color: white;
+}
+
+.App {
+  background-image: linear-gradient(180deg, rgb(138, 138, 207), #c38392);
+}
+
+.cat-image {
+  width: 80px;
+}
+
+.fish-border-container {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.fish-border {
+  height: 10px;
+}
+
+.heading-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  align-items: center;
 }
 
 h1 {
   text-align: center;
+  font-family: 'pacifico';
+  font-size: 35px;
+}
+
+article {
+  font-family: "tilt neon";
+}
+
+/* body {
+  border: 1px solid black;
+} */
+
+input {
+  border-radius: 20px;
+  color:black;
 }
 
 .titles {
@@ -13,6 +56,10 @@ h1 {
   flex-direction: row;
   justify-content: space-around;
   margin-left: 22%;
+}
+
+.title {
+  font-size: 22px;
 }
 
 .inputs {
@@ -56,7 +103,7 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height:60px;
+  height:45px;
 }
 
 .lunch-results {
@@ -84,14 +131,12 @@ input {
 
 .lunch-dinner-credit-total {
   text-align: center;
-  padding: 0;
-  margin: 2px;
+  margin-bottom: 20px;
 }
 
 .kitchen-tip-header {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 0;
 }
 
 .kitchen-tip-container {
@@ -132,4 +177,12 @@ input {
 .percent-input {
   height: 50px;
   width: 30%;
+}
+
+.winners {
+  text-align: center;
+}
+
+.section-splitter {
+  margin-bottom: 13px;
 }

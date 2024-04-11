@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import cat from './images/cat.png'
+import fish from './images/fish-border-transparent-highres.png'
 import './App.css';
 import {useState, useEffect} from 'react'
 
@@ -344,8 +345,8 @@ function App() {
   useEffect(calculateDinnerCashDistribution, [dinnerCash, dinnerKitchenTip, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
 
   const calculateRemainders = () => {
-    setLunchCashRemainder((Number(lunchCash) - Number(lunchKitchenTip)) - (Number(worker1LunchCash) + Number(worker2LunchCash) + Number(worker3LunchCash)))
-    setDinnerCashRemainder((Number(dinnerCash) - Number(dinnerKitchenTip)) - (Number(worker1DinnerCash) + Number(worker2DinnerCash) + Number(worker3DinnerCash) + Number(worker4DinnerCash)))
+    setLunchCashRemainder(((Number(lunchCash) - Number(lunchKitchenTip)) - (Number(worker1LunchCash) + Number(worker2LunchCash) + Number(worker3LunchCash))).toFixed())
+    setDinnerCashRemainder(((Number(dinnerCash) - Number(dinnerKitchenTip)) - (Number(worker1DinnerCash) + Number(worker2DinnerCash) + Number(worker3DinnerCash) + Number(worker4DinnerCash))).toFixed())
   }
   useEffect(calculateRemainders, [lunchCash, dinnerCash, worker1LunchCash, worker1DinnerCash, worker2LunchCash, worker2DinnerCash, worker3LunchCash, worker3DinnerCash, worker4DinnerCash, dinnerKitchenTip, lunchKitchenTip])
 
@@ -398,10 +399,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-          <h1>TawaTawa Mafs</h1>
-
+      <header className="App-header"><title>Terakawa Math</title></header>
+        <article>
+          <div className="heading-line">
+            <h1>TawaTawa Mafs</h1>
+            <img src={cat} className="cat-image" alt="cat"/>
+          </div>
           <div className="titles">
               <h2 className="title">Lunch</h2>
               <h2 className="title">Dinner</h2>
@@ -443,36 +446,91 @@ function App() {
             </div>
           </div>
 
-          <div >
+          <div className="section-splitter">
             <p className="lunch-dinner-credit-total">Lunch + Dinner Credit Total: ${(lunchCredit + dinnerCredit).toFixed(2)}</p>
           </div>
+
+          <div className="fish-border-container">
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+          </div>
+          
 
           <div>
             <h3 className="kitchen-tip-header">Kitchen Tip</h3>
           </div>
           <div className="kitchen-tip-container">
             <div className="kitchen-tip-subcontainer">
-              <h4>Lunch: </h4>
-              <h4>Dinner: </h4>
+              <p>Lunch: ${lunchKitchenTip}</p>
+              <p>Dinner: ${dinnerKitchenTip}</p>
             </div>
             <div className="kitchen-tip-subcontainer">
-              <p>${lunchKitchenTip}</p>
-              <p>${dinnerKitchenTip}</p>
-            </div>
-            <div className="kitchen-tip-subcontainer">
-              <h4>Remaining: </h4>
-              <h4>Remaining: </h4>
-            </div>
-            <div className="kitchen-tip-subcontainer">
-              <p>${lunchCashRemainder}</p>
-              <p>${dinnerCashRemainder}</p>
+              <p>Remaining: ${(lunchCash - lunchKitchenTip).toFixed()}</p>
+              <p>Remaining: ${(dinnerCash - dinnerKitchenTip).toFixed()}</p>
             </div>
           </div>
-          <div>
+          <div className="section-splitter">
             <p className="kitchen-tip-footer">Total Kitchen Tip: ${totalKitchenTip}</p>
           </div>
 
-          <div>
+          <div className="fish-border-container">
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+          </div>
+
+          <div className="section-splitter">
             <h3 className="percentage-header">Lunch Servers</h3>
           </div>
           <div className = "percentage-inputs">
@@ -505,7 +563,42 @@ function App() {
               <p>${(Number(worker3LunchCash) + Number(worker3LunchCredit)).toFixed(2)}</p>
             </div>
           </div>
-          <div>
+          <div className="section-splitter">
+            <p className="winners">Winners: {lunchCashRemainder}</p>
+          </div>
+
+          <div className="fish-border-container">
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+            <img className="fish-border" src={fish} alt="fish border"/>
+          </div>
+
+          <div className="section-splitter">
             <h3 className="percentage-header">Dinner Servers</h3>
           </div>
           <div className="percentage-inputs">
@@ -543,8 +636,10 @@ function App() {
               <p>${(Number(worker4DinnerCash) + Number(worker4DinnerCredit)).toFixed(2)}</p>
             </div>
           </div>
-        </div>
-      </header>
+          <div>
+            <p className="winners">Winners: {dinnerCashRemainder}</p>
+          </div>
+        </article>
     </div>
   );
 }
