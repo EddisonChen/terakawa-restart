@@ -160,7 +160,7 @@ function App() {
   }
   
   const calculateLunchCreditDistribution = () => {
-    const tempLunchCredit = lunchCredit / 3
+    const tempLunchCredit = lunchCreditSnackpassDoordash / 3
     
     const p1 = (tempLunchCredit)*worker1LunchPercent
     const p2 = (tempLunchCredit)*worker2LunchPercent
@@ -178,7 +178,7 @@ function App() {
       }
     }
 
-    const fullPercent = (lunchCredit - (sump))/count
+    const fullPercent = (lunchCreditSnackpassDoordash - (sump))/count
 
     if (worker1LunchPercent == 1) {
       setWorker1LunchCredit(fullPercent.toFixed(2))
@@ -193,7 +193,7 @@ function App() {
     setWorker3LunchCredit(fullPercent.toFixed(2))
 
   }
-  useEffect(calculateLunchCreditDistribution, [lunchCredit, worker1LunchPercent, worker2LunchPercent, worker3LunchPercent])
+  useEffect(calculateLunchCreditDistribution, [lunchCreditSnackpassDoordash, worker1LunchPercent, worker2LunchPercent, worker3LunchPercent])
 
   const setDinnerWorkerPercent = (e) => {
     if (e.target.name == "worker1") {
@@ -218,7 +218,7 @@ function App() {
   }
 
   const calculateDinnerCreditDistribution = () => {
-    const tempDinnerCredit = dinnerCredit / 4
+    const tempDinnerCredit = dinnerCreditSnackpassDoordash / 4
     
     const p1 = (tempDinnerCredit)*worker1DinnerPercent
     const p2 = (tempDinnerCredit)*worker2DinnerPercent
@@ -237,7 +237,7 @@ function App() {
       }
     }
 
-    const fullPercent = (dinnerCredit - (sump))/count
+    const fullPercent = (dinnerCreditSnackpassDoordash - (sump))/count
 
     if (worker1DinnerPercent == 1) {
       setWorker1DinnerCredit(fullPercent.toFixed(2))
@@ -256,7 +256,7 @@ function App() {
     }
     setWorker4DinnerCredit(fullPercent.toFixed(2))
   }
-  useEffect(calculateDinnerCreditDistribution, [dinnerCredit, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
+  useEffect(calculateDinnerCreditDistribution, [dinnerCreditSnackpassDoordash, worker1DinnerPercent, worker2DinnerPercent, worker3DinnerPercent, worker4DinnerPercent])
 
   const calculateLunchCashDistribution = () => {
     const tempLunchCashAfterKitchen = (lunchCash - lunchKitchenTip)
