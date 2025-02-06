@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/terakawamoneylaundering/static/css/main.28ab2695.css",
+    "main.js": "/terakawamoneylaundering/static/js/main.3a34d1c6.js",
+    "static/js/453.18a882e5.chunk.js": "/terakawamoneylaundering/static/js/453.18a882e5.chunk.js",
+    "static/media/cat.png": "/terakawamoneylaundering/static/media/cat.bf2e4c353e54ba9f22f6.png",
+    "static/media/fish-border-transparent-highres.png": "/terakawamoneylaundering/static/media/fish-border-transparent-highres.936231e0eef3344ce9f3.png",
+    "index.html": "/terakawamoneylaundering/index.html",
+    "main.28ab2695.css.map": "/terakawamoneylaundering/static/css/main.28ab2695.css.map",
+    "main.3a34d1c6.js.map": "/terakawamoneylaundering/static/js/main.3a34d1c6.js.map",
+    "453.18a882e5.chunk.js.map": "/terakawamoneylaundering/static/js/453.18a882e5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.28ab2695.css",
+    "static/js/main.3a34d1c6.js"
+  ]
+}
